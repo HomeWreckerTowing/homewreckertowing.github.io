@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Wrecker Towing Dashboard</title>
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --surface-2: #f1efe9;
+      --text: #22201b;
+      --muted: #6f6b63;
+      --border: #d8d4cb;
+      --primary: #0f6b6f;
+      --primary-dark: #0a4d50;
+      --success: #3d7a38;
+      --warning: #a5641e;
+      --radius: 16px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      padding: 24px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 32px;
+      color: var(--primary);
+    }
+
+    .nav a {
+      display: block;
+      text-decoration: none;
+      color: var(--text);
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: var(--surface-2);
+      color: var(--primary-dark);
+    }
+
+    .main {
+      padding: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .topbar h1 {
+      font-size: 28px;
+    }
+
+    .quick-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .status {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 14px;
+      background: #e5f2ef;
+      color: var(--success);
+    }
+
+    @media (max-width: 900px) {
+      .app {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Home Wrecker Towing</div>
+      <nav class="nav">
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Jobs</a>
+        <a href="#">Forms</a>
+        <a href="#">Customers</a>
+        <a href="#">PDFs</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <h1>Operations Dashboard</h1>
+        <button class="quick-btn">+ New Tow Job</button>
+      </div>
+
+      <section class="grid">
+        <div class="card">
+          <h2>Today’s Jobs</h2>
+          <p>Track active tows, scheduled pickups, and completed work for the day.</p>
+          <span class="status">3 active jobs</span>
+        </div>
+
+        <div class="card">
+          <h2>Open Forms</h2>
+          <p>Continue unfinished tow forms, authorizations, and release paperwork.</p>
+          <span class="status">5 forms in progress</span>
+        </div>
+
+        <div class="card">
+          <h2>Recent PDFs</h2>
+          <p>View generated forms, print copies, and save completed documents to your files.</p>
+          <span class="status">12 recent files</span>
+        </div>
+
+        <div class="card">
+          <h2>Quick Actions</h2>
+          <p>Start a tow ticket, open a customer record, or generate a completed PDF packet.</p>
+          <span class="status">Ready to use</span>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
