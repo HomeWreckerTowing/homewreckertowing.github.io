@@ -38,13 +38,28 @@
       background: var(--surface);
       border-right: 1px solid var(--border);
       padding: 24px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
     }
 
     .logo {
-      font-size: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .logo img {
+      max-width: 100%;
+      height: auto;
+      max-height: 80px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 18px;
       font-weight: bold;
-      margin-bottom: 32px;
       color: var(--primary);
+      margin-top: 8px;
     }
 
     .nav a {
@@ -71,6 +86,8 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 24px;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .topbar h1 {
@@ -84,12 +101,19 @@
       padding: 12px 18px;
       border-radius: 12px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .quick-btn:hover {
+      background: var(--primary-dark);
     }
 
     .grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
+      margin-bottom: 24px;
     }
 
     .card {
@@ -120,6 +144,10 @@
       color: var(--success);
     }
 
+    .section {
+      scroll-margin-top: 20px;
+    }
+
     @media (max-width: 900px) {
       .app {
         grid-template-columns: 1fr;
@@ -128,6 +156,8 @@
       .sidebar {
         border-right: none;
         border-bottom: 1px solid var(--border);
+        position: static;
+        height: auto;
       }
 
       .grid {
@@ -139,47 +169,57 @@
 <body>
   <div class="app">
     <aside class="sidebar">
-      <div class="logo">Home Wrecker Towing</div>
+      <div class="logo">
+        <img src="logo.png" alt="Home Wrecker Towing Logo" />
+        <div class="logo-text">Home Wrecker Towing</div>
+      </div>
+
       <nav class="nav">
-        <a href="#" class="active">Dashboard</a>
-        <a href="#">Jobs</a>
-        <a href="#">Forms</a>
-        <a href="#">Customers</a>
-        <a href="#">PDFs</a>
-        <a href="#">Settings</a>
+        <a href="#dashboard" class="active">Dashboard</a>
+        <a href="#jobs">Jobs</a>
+        <a href="#forms">Forms</a>
+        <a href="#customers">Customers</a>
+        <a href="#pdfs">PDFs</a>
+        <a href="#settings">Settings</a>
       </nav>
     </aside>
 
     <main class="main">
-      <div class="topbar">
+      <div class="topbar section" id="dashboard">
         <h1>Operations Dashboard</h1>
-        <button class="quick-btn">+ New Tow Job</button>
+        <a class="quick-btn" href="#jobs">+ New Tow Job</a>
       </div>
 
       <section class="grid">
-        <div class="card">
+        <div class="card section" id="jobs">
           <h2>Today’s Jobs</h2>
           <p>Track active tows, scheduled pickups, and completed work for the day.</p>
           <span class="status">3 active jobs</span>
         </div>
 
-        <div class="card">
+        <div class="card section" id="forms">
           <h2>Open Forms</h2>
           <p>Continue unfinished tow forms, authorizations, and release paperwork.</p>
           <span class="status">5 forms in progress</span>
         </div>
 
-        <div class="card">
+        <div class="card section" id="pdfs">
           <h2>Recent PDFs</h2>
           <p>View generated forms, print copies, and save completed documents to your files.</p>
           <span class="status">12 recent files</span>
         </div>
 
-        <div class="card">
+        <div class="card section" id="settings">
           <h2>Quick Actions</h2>
           <p>Start a tow ticket, open a customer record, or generate a completed PDF packet.</p>
           <span class="status">Ready to use</span>
         </div>
+      </section>
+
+      <section class="card section" id="customers">
+        <h2>Customers</h2>
+        <p>Store customer details, vehicle info, and service history.</p>
+        <span class="status">Customer records available</span>
       </section>
     </main>
   </div>
